@@ -6,7 +6,6 @@ This repository contains a PyTorch implementation of **NeRF: Representing Scenes
 
 | ![NeRF Overview](./Images/nerf.png) |
 |:--:|
-| Adapted from the [NeRF project page](https://www.matthewtancik.com/nerf)|
 
 ## Description
 
