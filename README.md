@@ -75,13 +75,3 @@ python scripts/utils/create_video.py
   <img src="./media/nerf_blender/hotdog.gif" width="150" />
   <img src="./media/nerf_llff/fern.gif" width="150" />
   </p>
-<p align="middle">
-  <img src="./media/nerf_llff/trex.gif" width="150" />
-  <img src="./media/nerf_llff/horns.gif" width="150" />
-  <img src="./media/nerf_llff/room.gif" width="150" />
-  <img src="./media/nerf_llff/flower.gif" width="150" />
-  <img src="./media/nerf_llff/fortress.gif" width="150" />
-  </p>
-<p align="middle">
-  <img src="./media/nerf_llff/orchids.gif" width="150" />
-</p>
