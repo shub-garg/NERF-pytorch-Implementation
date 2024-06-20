@@ -4,7 +4,7 @@
 
 This repository contains a PyTorch implementation of **NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis**. NeRF is a groundbreaking method introduced by Mildenhall et al. in their ECCV 2020 paper, which enables the synthesis of novel views of complex 3D scenes.
 
-| ![NeRF Overview](./media/nerf.png) |
+| ![NeRF Overview](./Images/nerf.png) |
 |:--:|
 | Adapted from the [NeRF project page](https://www.matthewtancik.com/nerf)|
 
@@ -69,9 +69,9 @@ python scripts/utils/make_video.py
 # Images
 
 <p align="middle">
-  <img src="./media/lego.gif" width="150" />
-  <img src="./media/ship.gif" width="150" />
-  <img src="./media/materials.gif" width="150" />
-  <img src="./media/hotdog.gif" width="150" />
-  <img src="./media/fern.gif" width="150" />
+  <img src="./Images/lego.gif" width="150" />
+  <img src="./Images/ship.gif" width="150" />
+  <img src="./Images/materials.gif" width="150" />
+  <img src="./Images/hotdog.gif" width="150" />
+  <img src="./Images/fern.gif" width="150" />
   </p>
