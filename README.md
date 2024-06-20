@@ -41,7 +41,7 @@ You may use alternative tools like conda if preferred. Ensure the correct depend
 # Download Dataset
 Download the synthetic dataset required for training by running the script below:
 ```bash
-sh scripts/data/download_data.sh
+sh scripts/download_data.sh
 ```
 
 This script creates a data directory under the project root (torch-NeRF) and downloads datasets provided by the original NeRF authors.
@@ -63,7 +63,7 @@ Update the yaml configuration file under config/train_params to specify the path
 # Create Video
 To compile the rendered frames into a video, use the following script:
 ```bash
-python scripts/utils/make_video.py
+python scripts/make_video.py
 ```
 
 # Images
