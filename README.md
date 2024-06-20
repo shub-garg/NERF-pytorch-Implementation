@@ -1,4 +1,4 @@
-# Torch-NeRF
+# NERF-torch
 
 ## Overview
 
