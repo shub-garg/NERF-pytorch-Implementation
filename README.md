@@ -4,7 +4,7 @@
 
 This repository contains a PyTorch implementation of **NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis**. NeRF is a groundbreaking method introduced by Mildenhall et al. in their ECCV 2020 paper, which enables the synthesis of novel views of complex 3D scenes.
 
-| ![NeRF Overview](./media/nerf_overview.png) |
+| ![NeRF Overview](./media/nerf.png) |
 |:--:|
 | Adapted from the [NeRF project page](https://www.matthewtancik.com/nerf)|
 
@@ -22,8 +22,8 @@ To configure the Python virtual environment and install dependencies, run the fo
 
 ```sh
 # Clone the repository
-git clone https://github.com/DveloperY0115/torch-NeRF.git
-cd torch-NeRF
+git clone https://github.com/shub-garg/NERF-torch.git
+cd NERF-torch
 ```
 
 # Create virtual environment
@@ -41,7 +41,7 @@ You may use alternative tools like conda if preferred. Ensure the correct depend
 # Download Dataset
 Download the synthetic dataset required for training by running the script below:
 ```bash
-sh scripts/data/download_example_data.sh
+sh scripts/data/download_data.sh
 ```
 
 This script creates a data directory under the project root (torch-NeRF) and downloads datasets provided by the original NeRF authors.
@@ -63,15 +63,15 @@ Update the yaml configuration file under config/train_params to specify the path
 # Create Video
 To compile the rendered frames into a video, use the following script:
 ```bash
-python scripts/utils/create_video.py
+python scripts/utils/make_video.py
 ```
 
 # Images
 
 <p align="middle">
-  <img src="./media/nerf_blender/lego.gif" width="150" />
-  <img src="./media/nerf_blender/ship.gif" width="150" />
-  <img src="./media/nerf_blender/materials.gif" width="150" />
-  <img src="./media/nerf_blender/hotdog.gif" width="150" />
-  <img src="./media/nerf_llff/fern.gif" width="150" />
+  <img src="./media/lego.gif" width="150" />
+  <img src="./media/ship.gif" width="150" />
+  <img src="./media/materials.gif" width="150" />
+  <img src="./media/hotdog.gif" width="150" />
+  <img src="./media/fern.gif" width="150" />
   </p>
