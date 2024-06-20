@@ -1,92 +1,87 @@
-# torch-NeRF
+# Torch-NeRF
 
 ## Overview
 
-Pytorch implementation of **NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis** (Mildenhall et al., ECCV 2020 Oral, Best Paper Honorable Mention).
+This repository contains a PyTorch implementation of **NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis**. NeRF is a groundbreaking method introduced by Mildenhall et al. in their ECCV 2020 paper, which enables the synthesis of novel views of complex 3D scenes.
 
-| ![NeRF_Overview](./media/nerf_overview.png) |
+| ![NeRF Overview](./media/nerf_overview.png) |
 |:--:|
-|*NeRF Overview.* Figure from the [project page](https://www.matthewtancik.com/nerf) of NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis, Mildenhall et al., ECCV 2020. |
+| Adapted from the [NeRF project page](https://www.matthewtancik.com/nerf)|
+
+## Description
+
+NeRF represents scenes as neural radiance fields, enabling high-fidelity 3D scene reconstruction and view synthesis. This implementation leverages PyTorch for efficient computation and training. Whether you're a researcher looking to dive into state-of-the-art neural rendering or a developer interested in 3D graphics and computer vision, this project provides a robust starting point.
 
 ## Getting Started
 
-To configure the Python virtual environment and install dependencies, open the shell and run the following commands:
+Follow these steps to set up your environment, install dependencies, and begin training your own NeRF models.
 
-```
+### Setup Environment
+
+To configure the Python virtual environment and install dependencies, run the following commands in your shell:
+
+```sh
 # Clone the repository
 git clone https://github.com/DveloperY0115/torch-NeRF.git
 cd torch-NeRF
+```
 
 # Create virtual environment
-virtualenv venv -p=3.8
+```
+virtualenv venv -p python3.8
 source venv/bin/activate
+```
 
 # Install dependencies
-pip3 install -r requirements.txt
 ```
-
-You may use any tools of your preference such as `conda`. Our code should reproduce the results regardless of which dependency management tool is used as long as the same versions of dependencies are installed.
-
-To download the synthetic dataset for training, issue the following command in the shell:
-
+pip install -r requirements.txt
 ```
+You may use alternative tools like conda if preferred. Ensure the correct dependency versions are installed to reproduce the results.
+
+# Download Dataset
+Download the synthetic dataset required for training by running the script below:
+```bash
 sh scripts/data/download_example_data.sh
 ```
 
-This should create `data` directory under the project root (`torch-NeRF` by default) and download datasets provided by the authors of NeRF (ECCV 2020).
+This script creates a data directory under the project root (torch-NeRF) and downloads datasets provided by the original NeRF authors.
 
-The configuration is set for `lego` scene included in `Blender` dataset. Executing the following command initiates training:
-
-```
+# Training
+The configuration is pre-set for the lego scene from the Blender dataset. Start training by running:
+```bash
 python torch_nerf/runners/run_train.py
 ```
 
-Once a scene representation is learned, you can render it using the script `run_render.py` under `torch_nerf/runners` directory. Note that you need to specify the path to the checkpoint file by modifying the `yaml` file under `config/train_params`.
+# Rendering
+Once the scene representation is trained, render it using:
+```bash
+python torch_nerf/runners/run_render.py
+```
 
-The rendering script stores rendered images in `render_out` directory under the project root. To create a video from the collection of consecutive frames, use the script `scripts/utils/create_video.py`.
+Update the yaml configuration file under config/train_params to specify the path to the checkpoint file. The rendered images will be saved in the render_out directory.
 
-## Gallery
+# Create Video
+To compile the rendered frames into a video, use the following script:
+```bash
+python scripts/utils/create_video.py
+```
 
-**NOTE: All images shown below are produced using our code.**
+# Images
+
 <p align="middle">
   <img src="./media/nerf_blender/lego.gif" width="150" />
   <img src="./media/nerf_blender/ship.gif" width="150" />
   <img src="./media/nerf_blender/materials.gif" width="150" />
   <img src="./media/nerf_blender/hotdog.gif" width="150" />
-</p>
-
-<p align="middle">
   <img src="./media/nerf_llff/fern.gif" width="150" />
+  </p>
+<p align="middle">
   <img src="./media/nerf_llff/trex.gif" width="150" />
   <img src="./media/nerf_llff/horns.gif" width="150" />
   <img src="./media/nerf_llff/room.gif" width="150" />
-</p>
-
-<p align="middle">
   <img src="./media/nerf_llff/flower.gif" width="150" />
   <img src="./media/nerf_llff/fortress.gif" width="150" />
+  </p>
+<p align="middle">
   <img src="./media/nerf_llff/orchids.gif" width="150" />
 </p>
-
-## Progress
-
-- [x] Implement the base model and volume rendering pipeline proposed in [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis (ECCV 2020)](https://www.matthewtancik.com/nerf).
-- [ ] Extend the implementation to [Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields (ICCV 2021)](https://arxiv.org/abs/2103.13415).
-- [ ] Extend the implementation to [Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields (CVPR 2022)](https://jonbarron.info/mipnerf360/).
-- [ ] Extend the implementation to [NeRF in the Dark: High Dynamic Range View Synthesis from Noisy Raw Images (CVPR 2022)](https://bmild.github.io/rawnerf/).
-- [ ] Extend the implementation to [Neural 3D Scene Reconstruction with the Manhattan-world Assumption (CVPR 2022)](https://zju3dv.github.io/manhattan_sdf/).
-- [ ] Extend the implementation to [Urban Radiance Fields (CVPR 2022)](https://urban-radiance-fields.github.io).
-- [ ] Extend the implementation to [Block-NeRF: Scalable Large Scene Neural View Synthesis (CVPR 2022)](https://waymo.com/research/block-nerf/).
-- [ ] Adapt techniques for accelerating training \& inference. The selected candidates are listed below (subject to change):
-  - [SNeRG (ICCV 2021)](https://phog.github.io/snerg/)
-  - [KiloNeRF (ICCV 2021)](https://arxiv.org/abs/2103.13744)
-  - **[Instant-NGP (SIGGRAPH 2022)](https://nvlabs.github.io/instant-ngp/)**
-  - **[Variable Bitrate Neural Fields (SIGGRAPH 2022)](https://nv-tlabs.github.io/vqad/)**
-  - [Point-NeRF (CVPR 2022)](https://xharlie.github.io/projects/project_sites/pointnerf/index.html)
-  - **[TensoRF (ECCV 2022)](https://arxiv.org/abs/2203.09517)**
-
-## Interesting Topics
-- [ARF: Artistic Radiance Fields (ECCV 2022)](https://arxiv.org/abs/2206.06360)
-- [GAUDI: A Neural Architect for Immersive 3D Scene Generation (arXiv 2022)](https://arxiv.org/abs/2207.13751)
-- [Remote Sensing Novel View Synthesis with Implicit Multiplane Representations (arXiv 2022)](https://arxiv.org/abs/2205.08908)
-- [MobileNeRF: Exploiting the Polygon Rasterization Pipeline for Efficient Neural Field Rendering on Mobile Architectures (arXiv 2022)](https://arxiv.org/abs/2208.00277)
